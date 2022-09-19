@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Buttons
+ *
+ * Demo file for the styleguide.
+ *
+ * Styleguide: {
+ *  title: Buttons,
+ *  section: Components,
+ *  description: Buttons description,
+ * }
+ *
+ */
+#}
+{% for button in buttons %}
+  <a href="{{ button.link }}" class="button {{ button.class }}">{{ button.text }}</a>
+{% endfor %}

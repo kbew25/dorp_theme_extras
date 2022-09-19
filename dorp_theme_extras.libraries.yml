@@ -1,0 +1,21 @@
+styleguide:
+  css:
+    theme:
+      css/styleguide.css: {}
+  js:
+    js/styleguide.js: {}
+  dependencies:
+     - dorp_theme_extras/highlight
+     - core/once
+     - core/drupal
+     - core/jquery
+     - core/drupalSettings
+
+highlight:
+  css:
+    theme:
+      css/vs2015.css: {}
+  js:
+    js/highlight.js: {}
+  dependencies:
+    - core/drupal

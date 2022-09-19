@@ -1,0 +1,18 @@
+{
+  "title": "This is a title or heading",
+  "subtitle": "This is a subtitle",
+  "long_text": {
+    "#markup": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+  },
+  "long_text_plain": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "short_text": "Lorem ipsum dolor sit amet",
+  "avatar": "https://source.unsplash.com/200x200/?portrait",
+  "short_date": "12/11/1955",
+  "long_date": "21st October 2015",
+  "term": "Design",
+  "terms": ["Music", "Art", "Design", "Technology", "Culture"],
+  "image_src": "https://source.unsplash.com/random/1920x1080",
+  "image": {
+    "#markup": "<img src=\"https://source.unsplash.com/random/1920x1080\" alt=\"\">"
+  }
+}

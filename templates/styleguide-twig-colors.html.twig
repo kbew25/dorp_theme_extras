@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Theme for color palettes.
+ *
+ * Available variables:
+ * - colors: Array of colors from the active theme.
+ */
+#}
+{% for palette in colors %}
+  {% if palette.heading != 'None' %}
+    <div class="sgt-colors">
+      {% if palette.heading %}
+        <h4>{{ palette.heading }}</h4>
+      {% endif %}
+
+      {% for key, value in palette.colors %}
+        <div class="sgt-color">
+          <span class="sgt-palette" style="{{ value['#style'] }}"></span>
+          <pre>{{ key }}</pre>
+          <pre>{{ value['#color'] }}</pre>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endfor %}

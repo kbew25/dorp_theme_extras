@@ -1,0 +1,6 @@
+dorp_theme_extras.styleguide:
+  title: Styleguide
+  description: 'Display a styleguide for the current theme.'
+  parent: system.themes_page
+  weight: 20
+  route_name: dorp_theme_extras.styleguide

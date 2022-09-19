@@ -1,0 +1,24 @@
+{
+  "buttons": [
+    {
+      "text": "Primary",
+      "link": "#",
+      "class": "button--primary"
+    },
+    {
+      "text": "Secondary",
+      "link": "#",
+      "class": "button--secondary"
+    },
+    {
+      "text": "Tertiary",
+      "link": "#",
+      "class": "button--tertiary"
+    },
+    {
+      "text": "Disabled",
+      "link": "#",
+      "class": "button--disabled"
+    }
+  ]
+}

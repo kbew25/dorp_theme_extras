@@ -1,0 +1,15 @@
+
+dorp_theme_extras.styleguide:
+  path: '/styleguide'
+  defaults:
+    _title: 'Styleguide'
+    _controller: '\Drupal\dorp_theme_extras\Controller\StyleguideController::render'
+  requirements:
+    _permission: 'access styleguide page'
+
+dorp_theme_extras.styleguide_section:
+  path: '/styleguide/{section}'
+  defaults:
+    _controller: '\Drupal\dorp_theme_extras\Controller\StyleguideController::arguments'
+  requirements:
+    _permission: 'access styleguide page'

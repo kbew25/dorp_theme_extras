@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Theme for icons section.
+ *
+ * Available variables:
+ * - icons: Array of icons from the active theme.
+ */
+#}
+<div class="sgt-icons">
+  {% for name, icon in icons %}
+    <div class="sgt-icon">
+      {% include icon %}
+      <p class="sgt-icon__name">{{ name }}</p>
+    </div>
+  {% endfor %}
+</div>

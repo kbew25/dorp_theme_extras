@@ -1,0 +1,23 @@
+{
+    "name": "drupal/dorp_theme_extras",
+    "description": "Extra functionality for the Dorp Theme",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Kirsty Bewley",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "symfony/finder": "^5.2",
+        "drush/drush": "^9|^10",
+        "scssphp/scssphp": "^1.1"
+    },
+    "extra": {
+      "drush": {
+        "services": {
+          "drush.services.yml": "^9"
+        }
+      }
+    }
+}

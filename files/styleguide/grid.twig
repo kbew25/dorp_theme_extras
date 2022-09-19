@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Grid
+ *
+ * Demo file for the styleguide.
+ *
+ * Styleguide: {
+ *  title: Grid,
+ *  description: Grid Example,
+ *  section: Base,
+ * }
+ *
+ */
+#}
+<div class="sgt-container">
+  <div class="sgt-row" style="background: rgba(0, 0, 0, 0.1);">
+    {% for i in 1..12 %}
+      <div class="sgt-col" style="background: rgba(0, 0, 0, 0.2); height: 100px; outline: 1px solid #ccc"></div>
+    {% endfor %}
+  </div>
+</div>

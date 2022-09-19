@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains dorp_theme_extras.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function dorp_theme_extras_theme() {
+  return [
+    'styleguide_twig_sections' => [
+      'variables' => [
+        'sections' => [],
+        'menu' => [],
+      ],
+    ],
+    'styleguide_twig_form' => [
+      'render element' => 'form',
+    ],
+    'styleguide_twig_colors' => [
+      'variables' => [
+        'colors' => [],
+      ],
+    ],
+    'styleguide_twig_icons' => [
+      'variables' => [
+        'icons' => [],
+      ],
+    ],
+  ];
+}

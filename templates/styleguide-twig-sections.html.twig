@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Theme file for the styleguide page content.
+ *
+ * Available variables:
+ * - menu: Array of all sections e.g. Drupal, Base etc.
+ * - sections: Array of sections. Either displays all or one section.
+ */
+#}
+<nav class="sgt-navigation">
+  <ul>
+    <li>
+      <a href="{{ path('dorp_theme_extras.styleguide') }}">{{ 'Overview'|t }}</a>
+    </li>
+    {% for key, item in menu %}
+      <li>
+        <a href="{{ path('dorp_theme_extras.styleguide_section', {'section': key}) }}">{{ item }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<div class="sgt-sections">
+  {% for key, section in sections %}
+    <h2 class="sgt-heading">{{ section.heading }}</h2>
+
+    <div class="sgt-section">
+      {% for component in section.component %}
+        <div class="sgt-component">
+          <h3 class="sgt-title">{{ component.title }}</h3>
+
+          {% if component.description %}
+            <p class="sgt-description">{{ component.description }}</p>
+          {% endif %}
+
+          <div class="sgt-markup {{ component.classes }}" {% if component.width %} style="max-width:{{ component.width }};"{% endif %}>
+            {% if component.markup[0] %}
+              {% for markup in component.markup %}
+                {{ markup|raw }}
+              {% endfor %}
+            {% else %}
+              {{ component.markup|raw }}
+            {% endif %}
+          </div>
+
+          {% if component.code %}
+            <details class="sgt-code">
+              <summary>{{ 'HTML'|t }}</summary>
+              <pre>
+                <code class="hljs hljs-twig">{{ component.code }}</code>
+              </pre>
+            </details>
+          {% endif %}
+
+          {% if component.path %}
+            <pre class="sgt-path">/{{ component.path }}</pre>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

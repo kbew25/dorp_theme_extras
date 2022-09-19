@@ -1,0 +1,6 @@
+services:
+  dorp_theme_extras.commands:
+    class: \Drupal\dorp_theme_extras\Commands\DorpThemeCommands
+    arguments: ['@theme_installer', '@theme.registry', '@module_installer', '@module_handler', '@config.factory']
+    tags:
+      - { name: drush.command }

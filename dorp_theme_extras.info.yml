@@ -1,0 +1,5 @@
+name: Dorp Theme Extras
+type: module
+description: Extra things for the dorp theme.
+package: Custom
+core_version_requirement: ^8.8.0 || ^9.0
