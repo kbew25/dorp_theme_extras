@@ -118,7 +118,7 @@ class StyleguideController implements ContainerInjectionInterface {
         $content = $this->getJson($file);
         $content['directory'] = $this->themePath;
         // Create attributes in templates.
-        $attributes = isset($content['attributes']) ? $content['attributes'] : [];
+        $attributes = $content['attributes'] ?? [];
         $content['attributes'] = new Attribute($attributes);
 
         // Get template html.
@@ -137,11 +137,12 @@ class StyleguideController implements ContainerInjectionInterface {
 
           foreach ($content['sgt_repeat'] as $repeat_key => $value) {
             if (is_array($value)) {
-              $attributes = isset($value['attributes']) ? $value['attributes'] : [];
+              $attributes = $value['attributes'] ?? [];
               $value['attributes'] = new Attribute($attributes);
               $repeat_content = array_replace($content, $value);
-              $response = $twig->render('/' . $file_path, $repeat_content);
-              $section[$key]['markup'][1 + $repeat_key] = $markup;
+              $repeat_response = $twig->render('/' . $file_path, $repeat_content);
+              $repeat_markup = $wrapper ? '<div class="sgt-repeat ' . $wrapper_classes . '">' . $repeat_response . '</div>' : $repeat_response;
+              $section[$key]['markup'][1 + $repeat_key] = $repeat_markup;
             }
           }
         }
