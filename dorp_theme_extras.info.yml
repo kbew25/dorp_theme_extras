@@ -3,3 +3,4 @@ type: module
 description: Extra things for the dorp theme.
 package: Custom
 core_version_requirement: ^8.8.0 || ^9.0
+version: '9.x-1.0.1'
