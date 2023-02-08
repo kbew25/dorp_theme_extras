@@ -10,6 +10,15 @@ dorp_theme_extras.styleguide:
 dorp_theme_extras.styleguide_section:
   path: '/styleguide/{section}'
   defaults:
+    _title_callback: '\Drupal\dorp_theme_extras\Controller\StyleguideController::getTitle'
+    _controller: '\Drupal\dorp_theme_extras\Controller\StyleguideController::arguments'
+  requirements:
+    _permission: 'access styleguide page'
+
+dorp_theme_extras.styleguide_individual_section:
+  path: '/styleguide/{section}/{key}'
+  defaults:
+    _title: 'Component'
     _controller: '\Drupal\dorp_theme_extras\Controller\StyleguideController::arguments'
   requirements:
     _permission: 'access styleguide page'
