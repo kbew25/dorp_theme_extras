@@ -4,14 +4,15 @@ namespace Drupal\dorp_theme_extras\Controller;
 
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Form\FormBuilderInterface;
+use Drupal\Core\Form\FormState;
 use Drupal\Core\Pager\PagerManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Theme\ThemeManagerInterface;
+use ScssPhp\ScssPhp\Compiler;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Finder\Finder;
-use Drupal\Core\Form\FormState;
-use ScssPhp\ScssPhp\Compiler;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -524,11 +525,13 @@ class StyleguideController implements ContainerInjectionInterface {
    *
    * @param string $section
    *   Section title as argument.
+   * @param int $key
+   *   Component key as argument.
    *
    * @return array
    *   The render array.
    */
-  public function arguments($section) :array {
+  public function arguments($section, $key = NULL) :array {
     $templates = $this->twigSections();
     $sections = ($section == 'drupal') ? $this->drupalSections() : [];
 
@@ -572,11 +575,17 @@ class StyleguideController implements ContainerInjectionInterface {
     // Set Menu.
     $menu = $this->setMenu($templates);
 
+    // If /styleguide/{section}/{key} return single component.
+    if (isset($key)) {
+      $sections[$section]['component'] = [$sections[$section]['component'][$key]];
+    }
+
     return [
       'content' => [
         '#theme' => 'styleguide_twig_sections',
         '#sections' => $sections,
         '#menu' => $menu,
+        '#view' => isset($key) ? 'single' : 'all',
       ],
       '#attached' => [
         'library' => [
@@ -584,6 +593,16 @@ class StyleguideController implements ContainerInjectionInterface {
         ],
       ],
     ];
+  }
+
+  /**
+   * Get section title.
+   *
+   * @param string $section
+   *   Section title as argument.
+   */
+  public function getTitle($section) {
+    return ucfirst($section);
   }
 
 }
