@@ -33,34 +33,28 @@
   Drupal.behaviors.sgtMenu = {
     attach: function (context) {
       once('sgtMenu', 'html', context).forEach(function () {
-        // Create <ol>.
-        var menu = document.createElement('ol');
-        // Add class to ol.
-        menu.classList.add('sgt-menu');
-        // Get sgt heading.
-        var heading = document.getElementsByClassName('sgt-heading')[0];
-        // Insert ol after heading.
-        heading.parentNode.insertBefore(menu, heading.nextSibling);
         // Get ol.
-        var list = document.querySelector('.sgt-sections ol');
+        var list = document.querySelector('.sgt-sections .sgt-menu');
 
-        // For each sgt title.
-        document.querySelectorAll('.sgt-title').forEach(function (ele, i) {
-          // Add id to sgt title.
-          ele.setAttribute('id', 'c-' + i);
-          // Get title text.
-          var text = ele.innerText;
-          // Create the link.
-          var newlink = document.createElement('a');
-          newlink.setAttribute('href', '#c-' + i);
-          newlink.textContent = text;
-          // Create the li.
-          var newlist = document.createElement('li');
-          // Add link to li.
-          newlist.appendChild(newlink);
-          // Add li to ol.
-          list.appendChild(newlist);
-        });
+        if (list) {
+          // For each sgt title.
+          document.querySelectorAll('.sgt-title').forEach(function (ele, i) {
+            // Add id to sgt title.
+            ele.setAttribute('id', 'c-' + i);
+            // Get title text.
+            var text = ele.innerText;
+            // Create the link.
+            var newlink = document.createElement('a');
+            newlink.setAttribute('href', '#c-' + i);
+            newlink.textContent = text;
+            // Create the li.
+            var newlist = document.createElement('li');
+            // Add link to li.
+            newlist.appendChild(newlink);
+            // Add li to ol.
+            list.appendChild(newlist);
+          });
+        }
       });
     },
   };

@@ -22,11 +22,16 @@
 </nav>
 
 <div class="sgt-sections">
-  {% for key, section in sections %}
-    <h2 class="sgt-heading">{{ section.heading }}</h2>
+  {% if view == 'all' %}
+    <ol class="sgt-menu"></ol>
+  {% endif %}
 
+  {% for key, section in sections %}
+    {% if view == 'single' %}
+      <a href="{{ path('dorp_theme_extras.styleguide_section', {'section': key}) }}">{{ 'Back to '|t ~ section.heading }}</a>
+    {% endif %}
     <div class="sgt-section">
-      {% for component in section.component %}
+      {% for ckey, component in section.component %}
         <div class="sgt-component">
           <h3 class="sgt-title">{{ component.title }}</h3>
 
@@ -55,6 +60,10 @@
 
           {% if component.path %}
             <pre class="sgt-path">/{{ component.path }}</pre>
+          {% endif %}
+
+          {% if view == 'all' %}
+            <a href="{{ path('dorp_theme_extras.styleguide_individual_section', {'section': key, 'key': ckey}) }}" target="_blank">{{ 'Open in new tab'|t }}</a>
           {% endif %}
         </div>
       {% endfor %}

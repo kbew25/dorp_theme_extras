@@ -14,6 +14,7 @@ function dorp_theme_extras_theme() {
       'variables' => [
         'sections' => [],
         'menu' => [],
+        'view' => NULL,
       ],
     ],
     'styleguide_twig_form' => [

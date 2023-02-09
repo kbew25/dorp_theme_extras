@@ -1,10 +1,10 @@
 {
     "name": "drupal/dorp_theme_extras",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Extra functionality for the Dorp Theme",
     "type": "drupal-module",
     "homepage": "https://github.com/kbew25/dorp_theme_extras",
-    "time": "2023-02-01",
+    "time": "2023-02-08",
     "license": "MIT",
     "authors": [
         {
