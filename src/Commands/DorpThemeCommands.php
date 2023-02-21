@@ -200,7 +200,7 @@ class DorpThemeCommands extends DrushCommands {
    */
   public function sgtCommand() {
     $theme_path = DRUPAL_ROOT . '/' . \Drupal::theme()->getActiveTheme()->getPath();
-    $partials_dir = $theme_path . '/_source/partials';
+    $partials_dir = $theme_path . '/_source';
     $sgt_templates = DRUPAL_ROOT . '/modules/custom/dorp_theme_extras/files';
 
     // Add styleguide directory with Grid and Typo examples.
