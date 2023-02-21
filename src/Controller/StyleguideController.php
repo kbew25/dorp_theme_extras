@@ -91,7 +91,7 @@ class StyleguideController implements ContainerInjectionInterface {
   public function twigSections() :array {
     $section = [];
 
-    if (!is_dir($this->themePath . '/_source/partials') || !is_dir($this->themePath . '/templates')) {
+    if (!is_dir($this->themePath . '/_source') || !is_dir($this->themePath . '/templates')) {
       return $section;
     }
 
@@ -100,7 +100,7 @@ class StyleguideController implements ContainerInjectionInterface {
       ->files()
       ->name('*.twig')
       ->contains('Styleguide')
-      ->in($this->themePath . '/_source/partials')
+      ->in($this->themePath . '/_source')
       ->in($this->themePath . '/templates');
 
     if ($files->hasResults()) {
@@ -197,7 +197,7 @@ class StyleguideController implements ContainerInjectionInterface {
     $global_files = Finder::create()
       ->files()
       ->name('_global.json')
-      ->in($this->themePath . '/_source/partials/abstracts/');
+      ->in($this->themePath . '/_source/abstracts/');
 
     if ($global_files->hasResults()) {
       foreach ($global_files as $key => $jfile) {
@@ -227,7 +227,7 @@ class StyleguideController implements ContainerInjectionInterface {
     $json = Finder::create()
       ->files()
       ->name($json_variation_file)
-      ->in($this->themePath . '/_source/partials')
+      ->in($this->themePath . '/_source')
       ->in($this->themePath . '/templates');
 
     if ($json->hasResults()) {
@@ -260,14 +260,14 @@ class StyleguideController implements ContainerInjectionInterface {
     $palette = [];
     $vars = [];
 
-    if (!is_dir($this->themePath . '/_source/partials/abstracts/')) {
+    if (!is_dir($this->themePath . '/_source/abstracts/')) {
       return $palette;
     }
 
     $files = Finder::create()
       ->files()
       ->name('_colors.scss')
-      ->in($this->themePath . '/_source/partials/abstracts/');
+      ->in($this->themePath . '/_source/abstracts/');
 
     if ($files->hasResults()) {
       foreach ($files as $key => $file) {
@@ -279,7 +279,7 @@ class StyleguideController implements ContainerInjectionInterface {
           try {
             // Create an instance of the Sass Compiler class.
             $scss = new Compiler();
-            $scss->setImportPaths($this->themePath . '/_source/partials/abstracts/');
+            $scss->setImportPaths($this->themePath . '/_source/abstracts/');
 
             // Get all color variables.
             preg_match_all('/(^\$.*):\s(.*$)/msU', $contents, $colors);
